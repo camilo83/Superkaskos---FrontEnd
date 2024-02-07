@@ -1,0 +1,73 @@
+.certificate_banner {
+  img {
+    width: 100%;
+  }
+}
+
+.certificate {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 3rem;
+  img {
+    height: 8rem;
+  }
+  .get-certificate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0px;
+    p {
+      font-size: 1rem;
+      margin: 0;
+    }
+    .here {
+      color: red;
+      font-weight: 900;
+      font-size: 2rem;
+      margin: 0;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .certificate_banner {
+    img {
+      width: 100%;
+    }
+  }
+
+  .certificate {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 3rem;
+    img {
+      height: 8rem;
+    }
+    .get-certificate {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0px;
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }
+      .here {
+        color: red;
+        font-weight: 900;
+        font-size: 2rem;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}

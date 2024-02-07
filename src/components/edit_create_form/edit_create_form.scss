@@ -1,0 +1,56 @@
+.helmet-container {
+  background-color: white;
+  text-align: center;
+  width: 18rem;
+  margin: 0 auto;
+  padding-block: 0.5rem;
+  margin-block: 1rem;
+  border: 3px solid gainsboro;
+  border-radius: 1rem;
+  font-family: 'Poppins', sans-serif;
+  .create-helmet {
+    margin-block: 0;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .helmet-form {
+    input {
+      margin-bottom: 0.6rem;
+    }
+  }
+  button {
+    background-color: #cc1414;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin-top: 0rem;
+  }
+  .go-to-login {
+    margin-block: 0;
+    padding-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .file-select {
+    position: relative;
+    display: inline-block;
+    ::before {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 6px;
+      content: 'Seleccionar';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+    input[type='file'] {
+      opacity: 0;
+      width: 200px;
+      height: 32px;
+      display: inline-block;
+    }
+  }
+}

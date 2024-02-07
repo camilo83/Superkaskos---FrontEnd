@@ -1,0 +1,123 @@
+.details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  .info {
+    display: flex;
+    flex-direction: column;
+    .info-text {
+      margin: 8px;
+    }
+    .buttons {
+      .edit-and-delete-buttons {
+        gap: 30px;
+        margin-top: 1rem;
+        img {
+          border: 1px solid black;
+          border-radius: 5px;
+          padding-inline: 8px;
+          padding-top: 5px;
+          margin-inline: 15px;
+          padding-bottom: 8px;
+          background-color: red;
+          &.favorite {
+            background-color: gold;
+          }
+          &.no-favorite {
+            background-color: red;
+          }
+        }
+      }
+      .add-to-cart {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        min-width: 200px;
+        max-width: 200px;
+        gap: 10px;
+        align-items: center;
+        background-color: #cc1414;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 8px;
+        margin-top: 1rem;
+
+        p {
+          margin: 0;
+          color: white;
+        }
+        img {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        margin: 0;
+      }
+      .info-text {
+        margin: 0;
+      }
+      .buttons {
+        margin-block: 2rem;
+        .edit-and-delete-buttons {
+          gap: 30px;
+
+          img {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding-inline: 8px;
+            padding-top: 5px;
+            margin-inline: 15px;
+            padding-bottom: 8px;
+            background-color: red;
+          }
+          &.favorite {
+            background-color: gold;
+          }
+          &.no-favorite {
+            background-color: red;
+          }
+        }
+        .add-to-cart {
+          justify-content: center;
+          display: flex;
+          flex-direction: row;
+          margin: 0;
+          min-width: 200px;
+          max-width: 200px;
+          gap: 10px;
+          align-items: center;
+          background-color: #cc1414;
+          border: 1px solid black;
+          border-radius: 8px;
+          padding: 8px;
+          margin-top: 1rem;
+
+          p {
+            margin: 0;
+            color: white;
+          }
+          img {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
