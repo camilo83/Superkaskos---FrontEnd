@@ -63,7 +63,7 @@ describe('Given AppRoutes component', () => {
       await act(async () => {
         render(
           <MemoryRouter
-            initialEntries={['/helmet-edit-form/:id']}
+            initialEntries={['/currentHelmet-edit-form/:id']}
             initialIndex={0}
           >
             <Router></Router>
