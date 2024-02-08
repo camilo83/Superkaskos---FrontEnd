@@ -33,8 +33,7 @@ export function Card({ helmet }: PropsType) {
   };
 
   let addToCartButton;
-  if (loggedUser?.role === 'Admin') {
-  } else if (token) {
+  if (token) {
     addToCartButton = (
       <div className="add-to-cart" onClick={() => handleAddToCart(helmet.id)}>
         <p>Añadir al carrito</p>
@@ -61,13 +60,12 @@ export function Card({ helmet }: PropsType) {
           to={'/details-page/' + helmet.id}
           style={{ textDecoration: 'none' }}
         >
-          <button role="button">
+          <button role="button" onClick={() => handleCurrentHelmet(helmet)}>
             <img
               src={helmet.images.url}
               alt={`${helmet.reference} image`}
               height={140}
               width={140}
-              onClick={() => handleCurrentHelmet(helmet)}
             />
           </button>
         </Link>

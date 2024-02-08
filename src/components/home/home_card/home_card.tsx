@@ -39,14 +39,14 @@ export function HomeCard({ helmet }: PropsType) {
           to={'/details-page/' + helmet.id}
           style={{ textDecoration: 'none' }}
         >
-          <img
-            role="button"
-            src={helmet.images.url}
-            alt={`${helmet.reference} image`}
-            height={140}
-            width={140}
-            onClick={() => handleCurrentHelmet(helmet)}
-          />
+          <button role="button" onClick={() => handleCurrentHelmet(helmet)}>
+            <img
+              src={helmet.images.url}
+              alt={`${helmet.reference} image`}
+              height={140}
+              width={140}
+            />
+          </button>
         </Link>
       </li>
       <div className="card-info">

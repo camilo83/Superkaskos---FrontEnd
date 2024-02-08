@@ -62,13 +62,8 @@ export default function UserPage() {
       </p>
       <div className="logout">
         <p>Log Out</p>
-        <button role="button">
-          <img
-            src="/logout_icon.png"
-            alt="logout-button"
-            height={30}
-            onClick={() => handleLogOut()}
-          />
+        <button role="button" onClick={() => handleLogOut()}>
+          <img src="/logout_icon.png" alt="logout-button" height={30} />
         </button>
       </div>
     </section>
