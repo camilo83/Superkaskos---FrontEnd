@@ -1,0 +1,118 @@
+header {
+  display: flex;
+  flex-direction: row;
+  padding-right: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  height: 10vh;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  .header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    h1 {
+      font-size: 0.0000001rem;
+      color: black;
+      margin-block: 1rem;
+    }
+    img {
+      height: 3rem;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    padding-right: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 10vh;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    .header {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      h1 {
+        font-size: 0.0000001rem;
+        color: black;
+        margin-block: 1rem;
+      }
+      img {
+        height: 2.5rem;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    text-align: center;
+    padding-inline: 8px;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    nav {
+      margin: 0;
+    }
+    .header {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      h1 {
+        font-size: 0.0000001rem;
+        color: black;
+        margin-block: 1rem;
+      }
+      img {
+        height: 1.5rem;
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    text-align: center;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+  }
+
+  .header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    order: 2;
+  }
+
+  .login-header {
+    order: 2;
+    margin-left: 0;
+  }
+}

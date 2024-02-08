@@ -1,0 +1,33 @@
+.register-container {
+  background-color: white;
+  text-align: center;
+  width: 18rem;
+  margin: 0 auto;
+  padding-block: 0.5rem;
+  margin-block: 1rem;
+  border: 3px solid gainsboro;
+  border-radius: 1rem;
+  font-family: 'Poppins', sans-serif;
+  .create-account {
+    margin-block: 0;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+  }
+  .register-form {
+    input {
+      margin-bottom: 0.6rem;
+    }
+  }
+  button {
+    background-color: #cc1414;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    margin-top: 2rem;
+  }
+  .go-to-login {
+    margin-block: 0;
+    padding-top: 1rem;
+    font-size: 1rem;
+  }
+}
