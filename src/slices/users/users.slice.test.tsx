@@ -28,14 +28,12 @@ describe('Given...', () => {
       await store.dispatch(loginThunk(data3));
       expect(data3.repo.login).toHaveBeenCalled();
       expect(data3.userStore.set).toHaveBeenCalled();
-      data3.repo.login;
     });
     test('Then it should ...', async () => {
       const data4 = { ...sharedData, token: '' };
       await store.dispatch(loginTokenThunk(data4));
       expect(data4.repo.login).toHaveBeenCalled();
       expect(data4.userStore.set).toHaveBeenCalled();
-      data4.repo.login;
     });
   });
 

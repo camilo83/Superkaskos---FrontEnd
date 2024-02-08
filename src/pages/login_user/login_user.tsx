@@ -23,45 +23,41 @@ export default function LoginForm() {
       passwd: userPasswd,
     };
 
-    await login(newUser);
+    login(newUser);
 
     navigate('/home');
   };
 
   return (
-    <>
-      <div className="login-container">
-        <p className="login-account">Inicia sesión</p>
-        <form
-          className="login-form"
-          name="login-form"
-          onSubmit={handleSubmit}
-          data-testid="login-form"
-        >
-          <div>
-            <label htmlFor="email"></label>
-            <input type="email" name="email" id="email" placeholder="Email: " />
-          </div>
-          <div>
-            <label htmlFor="passwd"></label>
-            <input
-              type="password"
-              name="passwd"
-              id="passwd"
-              placeholder="Password"
-            />
-          </div>
-          <button type="submit">Inciar Sesión</button>
-        </form>
-        <p className="go-to-register">
-          No tienes cuenta?{' '}
-          <span>
-            <Link to={'/user-register'} style={{ textDecoration: 'none' }}>
-              ¡Entra Aquì!
-            </Link>
-          </span>
-        </p>
-      </div>
-    </>
+    <div className="login-container">
+      <p className="login-account">Inicia sesión</p>
+      <form
+        className="login-form"
+        name="login-form"
+        onSubmit={handleSubmit}
+        data-testid="login-form"
+      >
+        <div>
+          <input type="email" name="email" id="email" placeholder="Email: " />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="passwd"
+            id="passwd"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit">Inciar Sesión</button>
+      </form>
+      <p className="go-to-register">
+        No tienes cuenta?{' '}
+        <span>
+          <Link to={'/user-register'} style={{ textDecoration: 'none' }}>
+            ¡Entra Aquì!
+          </Link>
+        </span>
+      </p>
+    </div>
   );
 }

@@ -7,15 +7,13 @@ export function HomeList() {
   const { favorites } = useHelmets();
 
   return (
-    <>
-      <div className="home-list">
-        <p>Promociones</p>
-        <ul className="home-list-ul">
-          {favorites.map((item: Helmet) => (
-            <HomeCard helmet={item} key={item.id}></HomeCard>
-          ))}
-        </ul>
-      </div>
-    </>
+    <div className="home-list">
+      <p>Promociones</p>
+      <ul className="home-list-ul">
+        {favorites.map((item: Helmet) => (
+          <HomeCard helmet={item} key={item.id}></HomeCard>
+        ))}
+      </ul>
+    </div>
   );
 }

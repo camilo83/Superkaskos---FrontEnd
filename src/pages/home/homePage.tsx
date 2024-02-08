@@ -25,27 +25,25 @@ export default function HomePage() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      if (loggedUser) {
-        if (loggedUser.role === 'User') {
-          if (loggedUser.orders.length > 0) {
-            const allOrders = await Promise.all(
-              loggedUser.orders.map(async (order) => {
-                return await loadShopcarById(order);
-              })
-            );
+      if (loggedUser && loggedUser.role === 'User') {
+        if (loggedUser.orders.length > 0) {
+          const allOrders = await Promise.all(
+            loggedUser.orders.map(async (order) => {
+              return await loadShopcarById(order);
+            })
+          );
 
-            const currentOrder = allOrders.find(
-              (order) => order?.status === 'open'
-            );
+          const currentOrder = allOrders.find(
+            (order) => order?.status === 'open'
+          );
 
-            if (currentOrder) {
-              handleCurrentShopcar(currentOrder);
-            } else {
-              handleCurrentShopcar(newShopCar);
-            }
+          if (currentOrder) {
+            handleCurrentShopcar(currentOrder);
           } else {
             handleCurrentShopcar(newShopCar);
           }
+        } else {
+          handleCurrentShopcar(newShopCar);
         }
       }
     };

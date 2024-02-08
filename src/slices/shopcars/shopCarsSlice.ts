@@ -35,30 +35,30 @@ const ShopCarSlice = createSlice({
     builder.addCase(loadShopCarThunk.pending, (state: ShopcarsState) => {
       state.shopCarsStateOption = 'loading';
       return state;
-    }),
-      builder.addCase(loadShopCarThunk.fulfilled, (state, { payload }) => {
-        state.shopCars = payload;
-        state.shopCarsStateOption = 'idle';
-        return state;
-      }),
-      builder.addCase(loadShopCarThunk.rejected, (state: ShopcarsState) => {
-        state.shopCarsStateOption = 'error';
-        return state;
-      });
+    });
+    builder.addCase(loadShopCarThunk.fulfilled, (state, { payload }) => {
+      state.shopCars = payload;
+      state.shopCarsStateOption = 'idle';
+      return state;
+    });
+    builder.addCase(loadShopCarThunk.rejected, (state: ShopcarsState) => {
+      state.shopCarsStateOption = 'error';
+      return state;
+    });
 
     builder.addCase(loadShopCarByIdThunk.pending, (state: ShopcarsState) => {
       state.shopCarsStateOption = 'loading';
       return state;
-    }),
-      builder.addCase(loadShopCarByIdThunk.fulfilled, (state, { payload }) => {
-        state.shopCars = payload;
-        state.shopCarsStateOption = 'idle';
-        return state;
-      }),
-      builder.addCase(loadShopCarByIdThunk.rejected, (state: ShopcarsState) => {
-        state.shopCarsStateOption = 'error';
-        return state;
-      });
+    });
+    builder.addCase(loadShopCarByIdThunk.fulfilled, (state, { payload }) => {
+      state.shopCars = payload;
+      state.shopCarsStateOption = 'idle';
+      return state;
+    });
+    builder.addCase(loadShopCarByIdThunk.rejected, (state: ShopcarsState) => {
+      state.shopCarsStateOption = 'error';
+      return state;
+    });
 
     builder.addCase(
       updateShopCarThunk.fulfilled,

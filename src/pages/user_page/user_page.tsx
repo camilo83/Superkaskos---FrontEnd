@@ -35,10 +35,7 @@ export default function UserPage() {
       {loggedUser?.role === 'Admin' ? (
         <Link to={'/helmet-create-form'} style={{ textDecoration: 'none' }}>
           <div className="add-helmet">
-            <button
-              role="button"
-              onClick={() => handleCurrentHelmet(emptyHelmet)}
-            >
+            <button onClick={() => handleCurrentHelmet(emptyHelmet)}>
               Añadir Casco
             </button>
           </div>
@@ -65,13 +62,14 @@ export default function UserPage() {
       </p>
       <div className="logout">
         <p>Log Out</p>
-        <img
-          role="button"
-          src="/logout_icon.png"
-          alt="logout-button"
-          height={30}
-          onClick={() => handleLogOut()}
-        />
+        <button role="button">
+          <img
+            src="/logout_icon.png"
+            alt="logout-button"
+            height={30}
+            onClick={() => handleLogOut()}
+          />
+        </button>
       </div>
     </section>
   );

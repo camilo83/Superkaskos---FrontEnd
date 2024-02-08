@@ -8,10 +8,22 @@ import { store } from '../../../store/store';
 import userEvent from '@testing-library/user-event';
 import { useHelmets } from '../../../hooks/useHelmets';
 import { HomeCard } from './home_card';
+import { useShopCars } from '../../../hooks/useShopcars';
+import { useUsers } from '../../../hooks/useUsers';
+
+console.error = jest.fn();
+
+jest.mock('../../../hooks/useShopCars', () => ({
+  useShopCars: jest.fn().mockReturnValue({
+    currentShopCar: null,
+    updateShopCar: jest.fn(),
+  }),
+}));
 
 jest.mock('../../../hooks/useUsers', () => ({
   useUsers: jest.fn().mockReturnValue({
     token: 'token2',
+    loggedUser: { name: 'User', role: 'User', id: '1' },
   }),
 }));
 
@@ -37,8 +49,37 @@ describe('Given card component when it is rendered', () => {
       </Provider>
     );
 
-    const images2 = screen.getAllByRole('button');
-    await userEvent.click(images2[0]);
+    const buttons = screen.getAllByRole('button');
+    await userEvent.click(buttons[0]);
     expect(useHelmets().handleCurrentHelmet).toHaveBeenCalled();
+  });
+
+  test('renders the card for an User', async () => {
+    render(
+      <Provider store={store}>
+        <Router>
+          <HomeCard helmet={mockHelmet2}></HomeCard>
+        </Router>
+      </Provider>
+    );
+
+    const buttons = screen.getAllByRole('button');
+    await userEvent.click(buttons[1]);
+    expect(useShopCars().updateShopCar).toHaveBeenCalled();
+  });
+
+  test('renders the card for an User', async () => {
+    useUsers().loggedUser = null;
+    render(
+      <Provider store={store}>
+        <Router>
+          <HomeCard helmet={mockHelmet2}></HomeCard>
+        </Router>
+      </Provider>
+    );
+
+    const buttons = screen.getAllByRole('button');
+    await userEvent.click(buttons[1]);
+    expect(console.error).toHaveBeenCalled();
   });
 });

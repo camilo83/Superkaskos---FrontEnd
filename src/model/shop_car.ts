@@ -1,6 +1,6 @@
 export type Items = {
   helmetId: string;
-  quantity: Number;
+  quantity: number;
   id?: string;
 };
 

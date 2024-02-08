@@ -7,9 +7,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { store } from '../store/store';
 import { PriceRange } from '../types/range';
 
-/* import { RepoHelmets } from '../services/helmets/repoHelmets';
-import { helmetCategory } from '../types/helmetCategory'; */
-
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn().mockReturnValue(jest.fn()),
@@ -19,7 +16,7 @@ const mockNewHelmet = {} as FormData;
 const mockIdToDelete = '1';
 const mockHelmetList = [{} as Helmet];
 const mockLoadedCategories = ['1'];
-/* const mockHelmetCategory = { category: 'SK2' } as helmetCategory; */
+
 const mockId = '1';
 const mockIsFavorite = true;
 const mockRange = {} as PriceRange;
@@ -93,19 +90,6 @@ describe('Given useUsers Hook', () => {
       expect(useDispatch()).toHaveBeenCalled();
     });
   });
-
-  /* describe('When we click button loadNewHelmet', () => {
-    test.only('Then the dispacht should have been called', async () => {
-      let mockRepo = new RepoHelmets('test');
-      mockRepo = {
-        getMoreHelmets: jest.fn().mockResolvedValue(mockHelmet),
-      } as unknown as RepoHelmets;
-
-      await userEvent.click(elements[3]);
-
-      expect(mockRepo.getMoreHelmets).toHaveBeenCalled();
-    });
-  }); */
 
   describe('When we click button createHelmet', () => {
     test('Then the dispacht should have been called', async () => {

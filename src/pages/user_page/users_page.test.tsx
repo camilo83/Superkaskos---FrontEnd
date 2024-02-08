@@ -50,8 +50,8 @@ describe('Given UserPage component', () => {
       expect(useHelmets().handleCurrentHelmet).toHaveBeenCalled();
     });
     test('it triggers handleLogOut when the button is clicked', async () => {
-      const button = screen.getAllByRole('button');
-      await userEvent.click(button[1]);
+      const logOutButton = screen.getByAltText('logout-button');
+      await userEvent.click(logOutButton);
 
       expect(useUsers().makeLogOut).toHaveBeenCalled();
     });

@@ -51,8 +51,8 @@ describe('Given card component when it is rendered', () => {
     const addToCartTextElement = screen.getByText('Añadir al carrito');
     expect(addToCartTextElement).toBeInTheDocument();
 
-    const images = screen.getAllByRole('button');
-    await userEvent.click(images[0]);
+    const currentHelmet = screen.getByAltText(mockHelmet.reference + ' image');
+    await userEvent.click(currentHelmet);
     expect(useHelmets().handleCurrentHelmet).toHaveBeenCalled();
   });
 

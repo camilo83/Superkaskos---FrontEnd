@@ -51,7 +51,7 @@ export class RepoShopCars {
 
     const existingShopCar = await this.getShopcar(id);
 
-    const updatedItems: Items[] = [...(newShopcar?.items || [])];
+    const updatedItems: Items[] = [...(newShopcar?.items ?? [])];
 
     const updatedShopCar: ShopCar = {
       ...existingShopCar,

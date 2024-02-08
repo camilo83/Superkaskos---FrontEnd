@@ -4,7 +4,7 @@ import { useHelmets } from '../../hooks/useHelmets';
 import './shopCar_card.scss';
 
 type PropsType = {
-  shopcar: ShopCar;
+  readonly shopcar: ShopCar;
 };
 
 export function ShopCarCard({ shopcar }: PropsType) {
@@ -50,7 +50,7 @@ export function ShopCarCard({ shopcar }: PropsType) {
         <ul className="item">
           <p>Estado: {shopcar.status}</p>
           {helmetDetails.map((detail, index) => (
-            <li className="item-li" key={index}>
+            <li className="item-li" key={shopcar.items[index].helmetId}>
               {detail}
             </li>
           ))}

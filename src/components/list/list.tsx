@@ -123,11 +123,7 @@ export function List() {
 
       <div>
         {token ? (
-          <button
-            className="logout-button"
-            role="button"
-            onClick={() => handleLogOut()}
-          >
+          <button className="logout-button" onClick={() => handleLogOut()}>
             Log Out
           </button>
         ) : (

@@ -4,7 +4,7 @@ import './menu.scss';
 import { ReactNode, useState } from 'react';
 
 type Props = {
-  options: MenuOption[];
+  readonly options: MenuOption[];
   children?: ReactNode;
 };
 export function Menu({ options }: Props) {
@@ -15,15 +15,18 @@ export function Menu({ options }: Props) {
   };
   return (
     <nav>
-      <img
-        role="button"
-        src="./burgerMenu.png"
-        alt="icono de menu plegable"
-        className="burger-icon"
+      <button
         onClick={toggleMenu}
-        height={30}
-        width={30}
-      />
+        aria-label="Toggle Menu"
+        className="burger-icon"
+      >
+        <img
+          src="./burgerMenu.png"
+          alt="icono de menu plegable"
+          height={30}
+          width={30}
+        />
+      </button>
       <ul className={isMenuOpen ? 'open' : ''}>
         {options.map((item) => (
           <li key={item.label}>

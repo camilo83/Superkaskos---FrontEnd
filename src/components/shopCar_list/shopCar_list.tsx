@@ -9,48 +9,28 @@ export function ShopCarList() {
   const { shopCars, loadShopCars, loadShopCarsByUserId } = useShopCars();
   const { loggedUser } = useUsers();
 
-  loggedUser &&
-    (loggedUser!.role === 'Admin'
-      ? useEffect(() => {
-          const fetchData = async () => {
-            await loadShopCars();
-          };
-
-          fetchData();
-        }, [])
-      : useEffect(() => {
-          const fetchData = async () => {
-            await loadShopCarsByUserId(loggedUser?.id!);
-          };
-
-          fetchData();
-        }, []));
+  useEffect(() => {
+    if (loggedUser && loggedUser.role === 'Admin') {
+      const fetchData = async () => {
+        await loadShopCars();
+      };
+      fetchData();
+    } else if (loggedUser) {
+      const fetchData = async () => {
+        await loadShopCarsByUserId(loggedUser.id);
+      };
+      fetchData();
+    }
+  }, [loggedUser, loadShopCars, loadShopCarsByUserId]);
 
   return (
-    <>
-      <div className="shop-list">
-        <p className="shopcar-title">Ordenes</p>
-        {loggedUser?.role === 'Admin' ? (
-          <ul>
-            {shopCars.map((item: ShopCar) => (
-              <ShopCarCard shopcar={item} key={item.id}></ShopCarCard>
-            ))}
-          </ul>
-        ) : (
-          <ul>
-            {shopCars.filter((shopCars) => shopCars.userID === loggedUser?.id)
-              .length === 0 ? (
-              <p>No hay nada en tu historial de pedidos.</p>
-            ) : (
-              shopCars
-                .filter((shopCars) => shopCars.userID === loggedUser?.id)
-                .map((item: ShopCar) => (
-                  <ShopCarCard shopcar={item} key={item.id}></ShopCarCard>
-                ))
-            )}
-          </ul>
-        )}
-      </div>
-    </>
+    <div className="shop-list">
+      <p className="shopcar-title">Ordenes</p>
+      <ul>
+        {shopCars.map((item: ShopCar) => (
+          <ShopCarCard shopcar={item} key={item.id}></ShopCarCard>
+        ))}
+      </ul>
+    </div>
   );
 }

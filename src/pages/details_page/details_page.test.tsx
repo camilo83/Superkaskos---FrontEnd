@@ -56,13 +56,13 @@ describe('Given DetailsPage component', () => {
     });
     test('', async () => {
       window.confirm = jest.fn().mockReturnValue(true);
-      const img = screen.getAllByRole('button');
-      await userEvent.click(img[0]);
+      const deleteButton = screen.getByAltText('delete button');
+      await userEvent.click(deleteButton);
       expect(useHelmets().deleteHelmet).toHaveBeenCalled();
     });
     test('', async () => {
-      const img = screen.getAllByRole('button');
-      await userEvent.click(img[1]);
+      const favoriteButton = screen.getByAltText('add to favorite button');
+      await userEvent.click(favoriteButton);
       expect(useHelmets().updateFavoriteHelmet).toHaveBeenCalled();
     });
   });

@@ -48,71 +48,65 @@ const HelmetsSlice = createSlice({
     builder.addCase(loadHelmetThunk.pending, (state: HelmetsState) => {
       state.helmetsStateOption = 'loading';
       return state;
-    }),
-      builder.addCase(loadHelmetThunk.fulfilled, (state, { payload }) => {
-        state.helmets = payload;
-        state.helmetsStateOption = 'idle';
-        return state;
-      }),
-      builder.addCase(loadHelmetThunk.rejected, (state: HelmetsState) => {
-        state.helmetsStateOption = 'error';
-        return state;
-      });
+    });
+    builder.addCase(loadHelmetThunk.fulfilled, (state, { payload }) => {
+      state.helmets = payload;
+      state.helmetsStateOption = 'idle';
+      return state;
+    });
+    builder.addCase(loadHelmetThunk.rejected, (state: HelmetsState) => {
+      state.helmetsStateOption = 'error';
+      return state;
+    });
 
     builder.addCase(loadFavoriteHelmetThunk.pending, (state: HelmetsState) => {
       state.helmetsStateOption = 'loading';
       return state;
-    }),
-      builder.addCase(
-        loadFavoriteHelmetThunk.fulfilled,
-        (state, { payload }) => {
-          state.favorites = payload;
-          state.helmetsStateOption = 'idle';
-          return state;
-        }
-      ),
-      builder.addCase(
-        loadFavoriteHelmetThunk.rejected,
-        (state: HelmetsState) => {
-          state.helmetsStateOption = 'error';
-          return state;
-        }
-      );
+    });
+    builder.addCase(loadFavoriteHelmetThunk.fulfilled, (state, { payload }) => {
+      state.favorites = payload;
+      state.helmetsStateOption = 'idle';
+      return state;
+    });
+    builder.addCase(loadFavoriteHelmetThunk.rejected, (state: HelmetsState) => {
+      state.helmetsStateOption = 'error';
+      return state;
+    });
     builder.addCase(
       createHelmetThunk.fulfilled,
       (state: HelmetsState, { payload }: PayloadAction<Helmet>) => {
         state.helmets.push(payload);
         return state;
       }
-    ),
-      builder.addCase(
-        updateHelmetThunk.fulfilled,
-        (state: HelmetsState, { payload }: PayloadAction<Helmet>) => {
-          state.helmets[
-            state.helmets.findIndex((item) => item.id === payload.id)
-          ] = payload;
-          return state;
-        }
-      ),
-      builder.addCase(
-        updateHelmetFavoriteThunk.fulfilled,
-        (state: HelmetsState, { payload }: PayloadAction<Helmet>) => {
-          state.helmets[
-            state.helmets.findIndex((item) => item.id === payload.id)
-          ] = payload;
-          return state;
-        }
-      ),
-      builder.addCase(
-        deletHelmetThunk.fulfilled,
-        (state: HelmetsState, { payload }: PayloadAction<Helmet['id']>) => {
-          state.helmets.splice(
-            state.helmets.findIndex((item) => item.id === payload),
-            1
-          );
-          return state;
-        }
-      );
+    );
+    builder.addCase(
+      updateHelmetThunk.fulfilled,
+      (state: HelmetsState, { payload }: PayloadAction<Helmet>) => {
+        state.helmets[
+          state.helmets.findIndex((item) => item.id === payload.id)
+        ] = payload;
+        return state;
+      }
+    );
+    builder.addCase(
+      updateHelmetFavoriteThunk.fulfilled,
+      (state: HelmetsState, { payload }: PayloadAction<Helmet>) => {
+        state.helmets[
+          state.helmets.findIndex((item) => item.id === payload.id)
+        ] = payload;
+        return state;
+      }
+    );
+    builder.addCase(
+      deletHelmetThunk.fulfilled,
+      (state: HelmetsState, { payload }: PayloadAction<Helmet['id']>) => {
+        state.helmets.splice(
+          state.helmets.findIndex((item) => item.id === payload),
+          1
+        );
+        return state;
+      }
+    );
   },
 });
 
