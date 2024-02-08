@@ -13,7 +13,7 @@ import { useUsers } from '../../../hooks/useUsers';
 
 console.error = jest.fn();
 
-jest.mock('../../../hooks/useShopCars', () => ({
+jest.mock('../../../hooks/useShopcars', () => ({
   useShopCars: jest.fn().mockReturnValue({
     currentShopCar: null,
     updateShopCar: jest.fn(),
