@@ -62,17 +62,16 @@ export function HomeList() {
         <p>Promociones</p>
       </div>
       {!isSmallScreen ? (
-        <>
-          <ul className="home-list-ul">
-            {favorites.map((item: Helmet) => (
-              <HomeCard helmet={item} key={item.id}></HomeCard>
-            ))}
-          </ul>
-        </>
+        <ul className="home-list-ul">
+          {favorites.map((item: Helmet) => (
+            <HomeCard helmet={item} key={item.id}></HomeCard>
+          ))}
+        </ul>
       ) : (
         <div className="small-list">
           <div
             ref={containerRef}
+            data-testid="scroll-container"
             className="scroll-container"
             style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}
           >

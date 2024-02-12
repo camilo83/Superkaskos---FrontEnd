@@ -1,4 +1,8 @@
-export function Circle({ filled }: { filled: boolean }) {
+type Props = {
+  readonly filled: boolean;
+};
+
+export function Circle({ filled }: Props) {
   return (
     <div
       className={`circle ${filled ? 'filled' : ''}`}

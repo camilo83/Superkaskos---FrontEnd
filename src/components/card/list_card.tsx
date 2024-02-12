@@ -49,38 +49,41 @@ export function Card({ helmet }: PropsType) {
           to={'/currentHelmet-edit-form/' + helmet.id}
           style={{ textDecoration: 'none' }}
         >
-          <img
-            src="./editar_icon_white.png"
-            role="button"
-            alt="edit button"
-            width={30}
-            onClick={() => handleCurrentHelmet(helmet)}
-          />
+          <button role="button">
+            <img
+              src="./editar_icon_white.png"
+              alt="edit button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
         </Link>
         <Link
           to={'/details-page/' + helmet.id}
           style={{ textDecoration: 'none' }}
         >
-          <img
-            src="./delete_icon_white.png"
-            alt="delete button"
-            role="button"
-            width={30}
-            onClick={() => handleCurrentHelmet(helmet)}
-          />
+          <button role="button">
+            <img
+              src="./delete_icon_white.png"
+              alt="delete button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
         </Link>
         <Link
           to={'/details-page/' + helmet.id}
           style={{ textDecoration: 'none' }}
         >
-          <img
-            className={helmet?.isFavorite ? 'favorite' : 'no-favorite'}
-            src="./add_favorite_white.png"
-            alt="add to favorite button"
-            role="button"
-            width={30}
-            onClick={() => handleCurrentHelmet(helmet)}
-          />
+          <button role="button">
+            <img
+              className={helmet?.isFavorite ? 'favorite' : 'no-favorite'}
+              src="./add_favorite_white.png"
+              alt="add to favorite button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
         </Link>
       </div>
     );

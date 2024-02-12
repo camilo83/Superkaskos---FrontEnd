@@ -1,4 +1,16 @@
 .card-container {
+  &:hover {
+    li {
+      border: 2px solid red;
+    }
+    p {
+      color: red;
+      font-weight: 900;
+    }
+    .helmet_image {
+      transform: scale(1.1);
+    }
+  }
   .card-info {
     display: flex;
     min-width: 200px;
@@ -19,6 +31,11 @@
 
     .card-buttons {
       .edit-and-delete-buttons {
+        button {
+          border: none;
+          background-color: transparent;
+          padding: 0;
+        }
         margin-top: 1rem;
         display: flex;
         justify-content: space-evenly;
@@ -88,23 +105,20 @@
   }
 }
 
-.card-container {
-  &:hover {
-    li {
-      border: 2px solid red;
-    }
-    p {
-      color: red;
-      font-weight: 900;
-    }
-    .helmet_image {
-      transform: scale(1.1);
-    }
-  }
-}
-
 @media screen and (max-width: 500px) {
   .card-container {
+    &:hover {
+      li {
+        border: 2px solid red;
+      }
+      p {
+        color: red;
+        font-weight: 900;
+      }
+      .helmet_image {
+        transform: scale(1.1);
+      }
+    }
     .card-info {
       display: flex;
       min-width: 150px;
@@ -192,21 +206,6 @@
     button {
       border: none;
       background-color: transparent;
-    }
-  }
-
-  .card-container {
-    &:hover {
-      li {
-        border: 2px solid red;
-      }
-      p {
-        color: red;
-        font-weight: 900;
-      }
-      .helmet_image {
-        transform: scale(1.1);
-      }
     }
   }
 }
