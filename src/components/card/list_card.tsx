@@ -33,7 +33,7 @@ export function Card({ helmet }: PropsType) {
   };
 
   let addToCartButton;
-  if (token) {
+  if (token && loggedUser?.role === 'User') {
     addToCartButton = (
       <div className="add-to-cart" onClick={() => handleAddToCart(helmet.id)}>
         <p>Añadir al carrito</p>
@@ -42,11 +42,56 @@ export function Card({ helmet }: PropsType) {
         </button>
       </div>
     );
+  } else if (token && loggedUser?.role === 'Admin') {
+    addToCartButton = (
+      <div className="edit-and-delete-buttons">
+        <Link
+          to={'/currentHelmet-edit-form/' + helmet.id}
+          style={{ textDecoration: 'none' }}
+        >
+          <button role="button">
+            <img
+              src="./editar_icon_white.png"
+              alt="edit button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
+        </Link>
+        <Link
+          to={'/details-page/' + helmet.id}
+          style={{ textDecoration: 'none' }}
+        >
+          <button role="button">
+            <img
+              src="./delete_icon_white.png"
+              alt="delete button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
+        </Link>
+        <Link
+          to={'/details-page/' + helmet.id}
+          style={{ textDecoration: 'none' }}
+        >
+          <button role="button">
+            <img
+              className={helmet?.isFavorite ? 'favorite' : 'no-favorite'}
+              src="./add_favorite_white.png"
+              alt="add to favorite button"
+              width={30}
+              onClick={() => handleCurrentHelmet(helmet)}
+            />
+          </button>
+        </Link>
+      </div>
+    );
   } else {
     addToCartButton = (
       <Link to={'/user-login'} style={{ textDecoration: 'none' }}>
         <div className="add-to-cart">
-          <p>Añadir al carrito</p>
+          <p>Añadir al carrita</p>
           <img src="/shop_icon_white.png" alt="add to cart button" width={20} />
         </div>
       </Link>
@@ -62,6 +107,7 @@ export function Card({ helmet }: PropsType) {
         >
           <button role="button" onClick={() => handleCurrentHelmet(helmet)}>
             <img
+              className="helmet_image"
               src={helmet.images.url}
               alt={`${helmet.reference} image`}
               height={140}

@@ -1,4 +1,14 @@
 .user-info {
+  .add-helmet {
+    button {
+      background-color: red;
+      border: 1 px solid black;
+      border-radius: 0.5rem;
+      padding: 0.3rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +54,10 @@
     p {
       margin: 0;
       color: white;
+    }
+    button {
+      background-color: transparent;
+      border: none;
     }
     img {
       margin: 0;

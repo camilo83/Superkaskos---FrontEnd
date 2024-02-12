@@ -1,4 +1,16 @@
 .card-container {
+  &:hover {
+    li {
+      border: 2px solid red;
+    }
+    p {
+      color: red;
+      font-weight: 900;
+    }
+    .helmet_image {
+      transform: scale(1.1);
+    }
+  }
   .card-info {
     display: flex;
     min-width: 200px;
@@ -17,15 +29,13 @@
       }
     }
 
-    &:hover {
-      p {
-        color: red;
-        font-weight: 900;
-      }
-    }
-
     .card-buttons {
       .edit-and-delete-buttons {
+        button {
+          border: none;
+          background-color: transparent;
+          padding: 0;
+        }
         margin-top: 1rem;
         display: flex;
         justify-content: space-evenly;
@@ -55,11 +65,15 @@
         max-width: 200px;
         gap: 10px;
         align-items: center;
-        background-color: red;
         border: 1px solid black;
         border-radius: 8px;
         padding: 8px;
         margin-top: 1rem;
+        button {
+          color: transparent;
+          background-color: red;
+          border: none;
+        }
 
         p {
           margin: 0;
@@ -81,8 +95,117 @@
   gap: 0px;
   align-items: center;
   margin-bottom: 1rem;
-
   border-radius: 10px;
   padding: 5px;
   background-color: white;
+  border: 2px solid transparent;
+  button {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    &:hover {
+      li {
+        border: 2px solid red;
+      }
+      p {
+        color: red;
+        font-weight: 900;
+      }
+      .helmet_image {
+        transform: scale(1.1);
+      }
+    }
+    .card-info {
+      display: flex;
+      min-width: 150px;
+      max-width: 150px;
+      flex-direction: column;
+      align-items: flex-start;
+      word-wrap: break-word;
+
+      p {
+        font-size: 0.75rem;
+        margin-block: 0;
+
+        .price {
+          font-size: 2rem;
+          font-weight: 900;
+        }
+      }
+
+      .card-buttons {
+        .edit-and-delete-buttons {
+          margin-top: 1rem;
+          display: flex;
+          justify-content: space-evenly;
+          img {
+            background-color: red;
+            border: 1px solid black;
+            border-radius: 8px;
+            padding-inline: 8px;
+            padding-top: 5px;
+            margin-inline: 11px;
+            padding-bottom: 8px;
+            width: 25px;
+            height: 25px;
+            &.favorite {
+              background-color: gold;
+            }
+            &.no-favorite {
+              background-color: red;
+            }
+          }
+        }
+        .add-to-cart {
+          justify-content: center;
+          display: flex;
+          flex-direction: row;
+          margin: 0;
+          min-width: 150px;
+          max-width: 150px;
+          gap: 10px;
+          align-items: center;
+          border: 1px solid black;
+          border-radius: 8px;
+          padding: 8px;
+          margin-top: 1rem;
+          button {
+            color: transparent;
+            background-color: red;
+            border: none;
+          }
+
+          p {
+            margin: 0;
+            color: white;
+          }
+          .helmet_image {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  .card {
+    display: flex;
+    min-width: 150px;
+    max-width: 150px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0px;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+    border: 2px solid transparent;
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
 }

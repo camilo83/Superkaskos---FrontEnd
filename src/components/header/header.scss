@@ -9,11 +9,14 @@ header {
   text-align: center;
   position: sticky;
   top: 0;
+
   .header {
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: row;
+    background-color: transparent;
+    border: none;
     h1 {
       font-size: 0.0000001rem;
       color: black;
