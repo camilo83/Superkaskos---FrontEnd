@@ -1,4 +1,16 @@
 .card-container {
+  li {
+    background-color: white;
+    button {
+      border: none;
+      background-color: transparent;
+    }
+  }
+  &:hover {
+    .helmet_image_home {
+      transform: scale(1.1);
+    }
+  }
   .card-info {
     display: flex;
     min-width: 200px;
@@ -51,7 +63,7 @@
     }
   }
 }
-.card {
+.home-card {
   display: flex;
   min-width: 200px;
   max-width: 200px;
@@ -60,8 +72,34 @@
   gap: 0px;
   align-items: center;
   margin-bottom: 1rem;
-
   border-radius: 10px;
   padding: 5px;
   background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    .home-card {
+      width: 1000%;
+      height: auto;
+      padding: 0;
+
+      button {
+        width: 100%;
+        padding: 0;
+        border: none;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
 }

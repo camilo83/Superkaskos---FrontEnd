@@ -1,18 +1,25 @@
 .home-list {
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 5rem;
+  margin-inline: 0rem;
+  padding-inline: 2rem;
+  background-color: #f0f0f0;
+  padding-bottom: 2rem;
+  .promotions p {
+    margin-top: 0;
+  }
 
   p {
     font-size: 2rem;
     margin-top: 1rem;
     padding-block: 0;
-    margin-left: 2rem;
+    font-weight: 900;
   }
   .home-list-ul {
     display: flex;
     flex-direction: row;
     gap: 4rem;
-    margin-block: 2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0;
     overflow-x: auto;
     white-space: nowrap;
     font-family: 'Poppins', sans-serif;
@@ -23,23 +30,65 @@
 @media screen and (max-width: 500px) {
   .home-list {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0rem;
+    .small-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scroll-container {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: space-between;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-inline: 1rem;
+      .page-changer {
+        color: red;
+        font-size: 3rem;
+        padding-inline: 2rem;
+        margin: 0;
+      }
+    }
+    .promotions {
+      p {
+        text-align: center;
+      }
+    }
 
     p {
-      font-size: 1rem;
+      font-size: 1.4rem;
       margin-top: 1rem;
       padding-block: 0;
-      margin-left: 2rem;
+      padding-top: 0.4rem;
     }
     .home-list-ul {
       display: flex;
-      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       gap: 4rem;
       margin-block: 2rem;
       overflow-x: auto;
       white-space: nowrap;
       font-family: 'Poppins', sans-serif;
-      padding-right: 3rem;
+      padding-right: 0rem;
     }
   }
+}
+
+.circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+.filled {
+  background-color: red;
 }

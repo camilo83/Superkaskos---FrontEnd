@@ -53,7 +53,9 @@ export default function HomePage() {
   return (
     <>
       <HomeImages></HomeImages>
-      {favorites.length > 0 ? <HomeList></HomeList> : 'nada'}
+      <div className="homepage-list">
+        {favorites.length > 0 ? <HomeList></HomeList> : 'nada'}
+      </div>
       <div className="certificate-container">
         <div className="more-helmets">
           <Link to={'/helmets'} style={{ textDecoration: 'none' }}>
