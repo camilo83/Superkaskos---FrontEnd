@@ -6,7 +6,8 @@ import { ShopCarCard } from '../shopCar_card/shopCar_card';
 import './shopCar_list.scss';
 
 export function ShopCarList() {
-  const { shopCars, loadShopCars, loadShopCarsByUserId } = useShopCars();
+  const { shopCars, loadShopCars, loadShopCarsByUserId, currentShopCar } =
+    useShopCars();
   const { loggedUser } = useUsers();
 
   useEffect(() => {
@@ -21,11 +22,11 @@ export function ShopCarList() {
       };
       fetchData();
     }
-  }, [loggedUser, loadShopCars, loadShopCarsByUserId]);
+  }, [loggedUser, loadShopCars, loadShopCarsByUserId, currentShopCar]);
 
   return (
     <div className="shop-list">
-      <p className="shopcar-title">Ordenes</p>
+      <p className="shopcar-title">Tu Órden</p>
       <ul>
         {shopCars.map((item: ShopCar) => (
           <ShopCarCard shopcar={item} key={item.id}></ShopCarCard>

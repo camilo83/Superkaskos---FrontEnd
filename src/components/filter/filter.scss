@@ -19,7 +19,7 @@
 @media screen and (max-width: 520px) {
   .filter {
     display: flex;
-    position: relative;
+    position: sticky;
     flex-direction: column;
     font-size: 0.6rem;
     font-family: 'Poppins', sans-serif;
