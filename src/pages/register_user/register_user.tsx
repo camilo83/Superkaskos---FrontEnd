@@ -73,9 +73,13 @@ export default function RegisterForm() {
             placeholder="Dirección: "
           />
         </div>
-        <div>
-          <input type="file" name="avatar" id="avatar" placeholder="Image: " />
+        <div className="file-container">
+          <label htmlFor="avatar" className="file-button">
+            Imágen de perfil
+          </label>
+          <input type="file" name="avatar" id="avatar" />
         </div>
+
         <button type="submit">Regístrate</button>
       </form>
       <p className="go-to-login">

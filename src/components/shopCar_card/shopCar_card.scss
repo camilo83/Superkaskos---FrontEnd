@@ -6,6 +6,22 @@ ul {
     border-radius: 1rem;
     align-items: center;
 
+    .delete-item {
+      background-color: white;
+      padding: 0;
+      width: 25px;
+      margin-bottom: 0;
+      padding-block: 5px;
+      padding-inline: 15px;
+      display: flex;
+      justify-content: center;
+      border-radius: 0.3rem;
+      border: 2px solid transparent;
+
+      &:hover {
+        border: 2px solid red;
+      }
+    }
     p {
       font-size: 1rem;
     }
@@ -26,11 +42,51 @@ ul {
       .item-ul {
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        gap: 1.5rem;
         font-size: 0.7rem;
         align-items: center;
         margin: 0;
         padding: 0.2rem;
+      }
+    }
+    .quantity {
+      border: 1px solid black;
+      border-radius: 0.2rem;
+      width: 2rem;
+      height: 2rem;
+      background-color: gray;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quantity-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.4rem;
+      .less-quantity-button {
+        color: black;
+        font-size: 1rem;
+        border: 1px solid black;
+        border-radius: 0.15rem;
+        padding-inline: 10px;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0;
+        background-color: white;
+      }
+      .more-quantity-button {
+        color: white;
+        font-size: 1rem;
+        border: 1px solid black;
+        border-radius: 0.15rem;
+        padding-inline: 10px;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: 0;
+        background-color: black;
       }
     }
   }

@@ -1,10 +1,11 @@
 import { Helmet } from '../../model/helmet';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useHelmets } from '../../hooks/useHelmets';
 import { useUsers } from '../../hooks/useUsers';
 import './card.scss';
 import { useShopCars } from '../../hooks/useShopcars';
-import { ShopCar } from '../../model/shop_car';
+import { Items, ShopCar } from '../../model/shop_car';
+import Swal from 'sweetalert2';
 
 type PropsType = {
   readonly helmet: Helmet;
@@ -14,6 +15,7 @@ export function Card({ helmet }: PropsType) {
   const { handleCurrentHelmet } = useHelmets();
   const { loggedUser, token } = useUsers();
   const { currentShopCar, updateShopCar } = useShopCars();
+  const navigate = useNavigate();
 
   const handleAddToCart = async (helmetId: string) => {
     if (!loggedUser?.id) {
@@ -23,12 +25,49 @@ export function Card({ helmet }: PropsType) {
 
     const currentItems = currentShopCar?.items ?? [];
 
-    const updatedItems = [...currentItems, { quantity: 1, helmetId }];
+    const handleQuantity = () => {
+      if (currentItems.some((item: Items) => item.helmetId === helmetId)) {
+        return currentItems.map((item) =>
+          item.helmetId === helmetId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...currentItems, { quantity: 1, helmetId }];
+      }
+    };
 
+    const updatedItems = handleQuantity();
+    console.log(currentShopCar?.id);
     const shopCarToUpdate: Partial<ShopCar> = {
       ...currentShopCar,
       items: updatedItems,
     };
+
+    currentShopCar?.items!.length === undefined ||
+    currentShopCar?.items!.length < 1
+      ? Swal.fire({
+          title: 'Objeto añadido al carrito',
+          text: 'Quieres ir a pagar?',
+          icon: 'success',
+          background: 'white',
+          color: 'black',
+          iconColor: 'black',
+          width: '15rem',
+          showCancelButton: true,
+          confirmButtonColor: 'limegreen',
+          cancelButtonColor: 'red',
+          confirmButtonText: 'Checkout!',
+          customClass: {
+            container: 'custom-swal-font',
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/shop-car');
+          }
+        })
+      : '';
+
     await updateShopCar(currentShopCar?.id, shopCarToUpdate);
   };
 
@@ -91,7 +130,7 @@ export function Card({ helmet }: PropsType) {
     addToCartButton = (
       <Link to={'/user-login'} style={{ textDecoration: 'none' }}>
         <div className="add-to-cart">
-          <p>Añadir al carrita</p>
+          <p>Añadir al carrito</p>
           <img src="/shop_icon_white.png" alt="add to cart button" width={20} />
         </div>
       </Link>
